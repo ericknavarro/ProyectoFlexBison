@@ -1,0 +1,9 @@
+evaluar(1+2+3);
+
+evaluar(1+2+3);
+
+evaluar(1+2+3);
+
+evaluar(1 +         2+3);
+
+evaluar(3*5+1;
