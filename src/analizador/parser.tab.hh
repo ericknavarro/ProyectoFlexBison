@@ -46,11 +46,9 @@
 // "%code requires" blocks.
 #line 14 "parser.yy"
 
-   #include <string>
-   #include <stdio.h>
    class Driver;
 
-#line 54 "parser.tab.hh"
+#line 52 "parser.tab.hh"
 
 
 # include <cstdlib> // std::abort
@@ -184,7 +182,7 @@
 #endif
 
 namespace yy {
-#line 188 "parser.tab.hh"
+#line 186 "parser.tab.hh"
 
 
 
@@ -416,7 +414,8 @@ namespace yy {
         PARDER = 263,
         PTOCOMA = 264,
         EVALUAR = 265,
-        NUM = 266
+        NUM = 266,
+        NEG = 267
       };
     };
 
@@ -502,7 +501,7 @@ namespace yy {
 switch (yytype)
     {
       case 11: // "NUM"
-      case 15: // Expr
+      case 16: // Expr
         value.template destroy< float > ();
         break;
 
@@ -579,13 +578,13 @@ switch (yytype)
       symbol_type (int tok)
         : super_type(token_type (tok))
       {
-        YY_ASSERT (tok == token::FIN || tok == token::MAS || tok == token::MENOS || tok == token::POR || tok == token::DIV || tok == token::PARIZQ || tok == token::PARDER || tok == token::PTOCOMA || tok == token::EVALUAR);
+        YY_ASSERT (tok == token::FIN || tok == token::MAS || tok == token::MENOS || tok == token::POR || tok == token::DIV || tok == token::PARIZQ || tok == token::PARDER || tok == token::PTOCOMA || tok == token::EVALUAR || tok == token::NEG);
       }
 #else
       symbol_type (int tok)
         : super_type(token_type (tok))
       {
-        YY_ASSERT (tok == token::FIN || tok == token::MAS || tok == token::MENOS || tok == token::POR || tok == token::DIV || tok == token::PARIZQ || tok == token::PARDER || tok == token::PTOCOMA || tok == token::EVALUAR);
+        YY_ASSERT (tok == token::FIN || tok == token::MAS || tok == token::MENOS || tok == token::POR || tok == token::DIV || tok == token::PARIZQ || tok == token::PARDER || tok == token::PTOCOMA || tok == token::EVALUAR || tok == token::NEG);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
@@ -785,6 +784,21 @@ switch (yytype)
       make_NUM (const float& v)
       {
         return symbol_type (token::NUM, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_NEG ()
+      {
+        return symbol_type (token::NEG);
+      }
+#else
+      static
+      symbol_type
+      make_NEG ()
+      {
+        return symbol_type (token::NEG);
       }
 #endif
 
@@ -1093,10 +1107,10 @@ switch (yytype)
     enum
     {
       yyeof_ = 0,
-      yylast_ = 32,     ///< Last index in yytable_.
+      yylast_ = 36,     ///< Last index in yytable_.
       yynnts_ = 4,  ///< Number of nonterminal symbols.
       yyfinal_ = 5, ///< Termination state number.
-      yyntokens_ = 12  ///< Number of tokens.
+      yyntokens_ = 13  ///< Number of tokens.
     };
 
 
@@ -1140,9 +1154,9 @@ switch (yytype)
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
-       5,     6,     7,     8,     9,    10,    11
+       5,     6,     7,     8,     9,    10,    11,    12
     };
-    const int user_token_number_max_ = 266;
+    const int user_token_number_max_ = 267;
 
     if (t <= 0)
       return yyeof_;
@@ -1162,7 +1176,7 @@ switch (yytype)
     switch (this->type_get ())
     {
       case 11: // "NUM"
-      case 15: // Expr
+      case 16: // Expr
         value.move< float > (std::move (that.value));
         break;
 
@@ -1181,7 +1195,7 @@ switch (yytype)
     switch (this->type_get ())
     {
       case 11: // "NUM"
-      case 15: // Expr
+      case 16: // Expr
         value.copy< float > (YY_MOVE (that.value));
         break;
 
@@ -1208,7 +1222,7 @@ switch (yytype)
     switch (this->type_get ())
     {
       case 11: // "NUM"
-      case 15: // Expr
+      case 16: // Expr
         value.move< float > (YY_MOVE (s.value));
         break;
 
@@ -1266,7 +1280,7 @@ switch (yytype)
   }
 
 } // yy
-#line 1270 "parser.tab.hh"
+#line 1284 "parser.tab.hh"
 
 
 

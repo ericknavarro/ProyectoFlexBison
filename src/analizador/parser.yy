@@ -12,12 +12,13 @@
 
 %code requires
 {
-   #include <string>
-   #include <stdio.h>
    class Driver;
 }
 
 %{
+   
+   #include <string>
+   #include <stdio.h>
    #include "driver.h"
    #include <iostream>
 %}
@@ -30,6 +31,7 @@
 
 %left MAS MENOS
 %left POR DIV
+%precedence NEG 
 
 /******* NO TERMINALES ********/
 %type <float> Expr
@@ -64,6 +66,9 @@
       | Expr "/" Expr{
          $$ = $1 / $3;
       }
+      | "-" Expr %prec NEG{
+         $$ = -$2;
+      }
       | "NUM"
       {
          $$ = $1;
@@ -76,6 +81,6 @@
       
 %%
 
-void yy::Parser::error( const std::string& token){
-  std::cout << token << std::endl;
+void yy::Parser::error( const std::string& error){
+  std::cout << error << std::endl;
 }

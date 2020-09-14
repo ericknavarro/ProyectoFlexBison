@@ -5,7 +5,7 @@
   #include "parser.tab.hh"
 %}
 
-%option noyywrap nounput batch debug noinput
+%option noyywrap 
 %option outfile="scanner.cc" 
 
 DIGIT   [0-9]
@@ -28,17 +28,12 @@ NUM     {DIGIT}+("."{DIGIT}+)?
 <<EOF>>		      {return yy::Parser::make_FIN();}
 %%
 
-void Driver::runScanner(){
+void Driver::runScanner() {
   yy_flex_debug = false;
-  if(file.empty() || file == "-"){
-    printf("No se encuentra el archivo de entrada");
-    exit(1);
-  }else{
-    yyin = fopen (file.c_str (), "r");
-    if(yyin == NULL){
-		  printf("El archivo no existe");
-		  exit(1);
-	  }
+  yyin = fopen (file.c_str (), "r");
+  if(yyin == NULL){
+      printf("No se encontro el archivo de entrada");
+      exit(1);
   }
 }
 

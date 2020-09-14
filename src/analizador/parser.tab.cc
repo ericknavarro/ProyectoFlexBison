@@ -36,12 +36,15 @@
 
 
 // First part of user prologue.
-#line 20 "parser.yy"
+#line 18 "parser.yy"
 
+   
+   #include <string>
+   #include <stdio.h>
    #include "driver.h"
    #include <iostream>
 
-#line 45 "parser.tab.cc"
+#line 48 "parser.tab.cc"
 
 
 #include "parser.tab.hh"
@@ -118,7 +121,7 @@
 #define YYRECOVERING()  (!!yyerrstatus_)
 
 namespace yy {
-#line 122 "parser.tab.cc"
+#line 125 "parser.tab.cc"
 
 
   /* Return YYSTR after stripping away unnecessary quotes and
@@ -229,7 +232,7 @@ namespace yy {
     switch (that.type_get ())
     {
       case 11: // "NUM"
-      case 15: // Expr
+      case 16: // Expr
         value.YY_MOVE_OR_COPY< float > (YY_MOVE (that.value));
         break;
 
@@ -249,7 +252,7 @@ namespace yy {
     switch (that.type_get ())
     {
       case 11: // "NUM"
-      case 15: // Expr
+      case 16: // Expr
         value.move< float > (YY_MOVE (that.value));
         break;
 
@@ -269,7 +272,7 @@ namespace yy {
     switch (that.type_get ())
     {
       case 11: // "NUM"
-      case 15: // Expr
+      case 16: // Expr
         value.copy< float > (that.value);
         break;
 
@@ -287,7 +290,7 @@ namespace yy {
     switch (that.type_get ())
     {
       case 11: // "NUM"
-      case 15: // Expr
+      case 16: // Expr
         value.move< float > (that.value);
         break;
 
@@ -537,7 +540,7 @@ namespace yy {
       switch (yyr1_[yyn])
     {
       case 11: // "NUM"
-      case 15: // Expr
+      case 16: // Expr
         yylhs.value.emplace< float > ();
         break;
 
@@ -556,71 +559,79 @@ namespace yy {
           switch (yyn)
             {
   case 3:
-#line 46 "parser.yy"
+#line 48 "parser.yy"
       {
          std::cout<< "El valor de la Expresion es: " << yystack_[2].value.as < float > () << "\n";
       }
-#line 564 "parser.tab.cc"
+#line 567 "parser.tab.cc"
     break;
 
   case 4:
-#line 49 "parser.yy"
+#line 51 "parser.yy"
                                   {
          std::cout<< "El valor de la Expesion es: " << yystack_[2].value.as < float > () << "\n";
       }
-#line 572 "parser.tab.cc"
+#line 575 "parser.tab.cc"
     break;
 
   case 5:
-#line 55 "parser.yy"
+#line 57 "parser.yy"
                       {
          yylhs.value.as < float > () = yystack_[2].value.as < float > () + yystack_[0].value.as < float > ();
       }
-#line 580 "parser.tab.cc"
+#line 583 "parser.tab.cc"
     break;
 
   case 6:
-#line 58 "parser.yy"
+#line 60 "parser.yy"
                       {
          yylhs.value.as < float > () = yystack_[2].value.as < float > () - yystack_[0].value.as < float > ();
       }
-#line 588 "parser.tab.cc"
+#line 591 "parser.tab.cc"
     break;
 
   case 7:
-#line 61 "parser.yy"
+#line 63 "parser.yy"
                      {
          yylhs.value.as < float > () = yystack_[2].value.as < float > () * yystack_[0].value.as < float > ();
       }
-#line 596 "parser.tab.cc"
+#line 599 "parser.tab.cc"
     break;
 
   case 8:
-#line 64 "parser.yy"
+#line 66 "parser.yy"
                      {
          yylhs.value.as < float > () = yystack_[2].value.as < float > () / yystack_[0].value.as < float > ();
       }
-#line 604 "parser.tab.cc"
+#line 607 "parser.tab.cc"
     break;
 
   case 9:
-#line 68 "parser.yy"
-      {
-         yylhs.value.as < float > () = yystack_[0].value.as < float > ();
+#line 69 "parser.yy"
+                          {
+         yylhs.value.as < float > () = -yystack_[0].value.as < float > ();
       }
-#line 612 "parser.tab.cc"
+#line 615 "parser.tab.cc"
     break;
 
   case 10:
-#line 72 "parser.yy"
+#line 73 "parser.yy"
+      {
+         yylhs.value.as < float > () = yystack_[0].value.as < float > ();
+      }
+#line 623 "parser.tab.cc"
+    break;
+
+  case 11:
+#line 77 "parser.yy"
       {
          yylhs.value.as < float > () = yystack_[1].value.as < float > ();
       }
-#line 620 "parser.tab.cc"
+#line 631 "parser.tab.cc"
     break;
 
 
-#line 624 "parser.tab.cc"
+#line 635 "parser.tab.cc"
 
             default:
               break;
@@ -894,17 +905,17 @@ namespace yy {
   const signed char
   Parser::yypact_[] =
   {
-      -6,    21,    13,     9,    20,    -8,    22,    20,    -8,     6,
-      20,    12,    20,    20,    20,    20,    16,    18,    -8,    -4,
-      -4,    -8,    -8,    -8,    23,    -8
+      -5,    -1,    12,     3,     7,    -8,     8,     7,     7,    -8,
+      16,     7,    -8,    22,     7,     7,     7,     7,    14,    28,
+      -8,    -3,    -3,    -8,    -8,    -8,    20,    -8
   };
 
   const signed char
   Parser::yydefact_[] =
   {
-       0,     0,     0,     2,     0,     1,     0,     0,     9,     0,
-       0,     0,     0,     0,     0,     0,     0,     0,    10,     5,
-       6,     7,     8,     4,     0,     3
+       0,     0,     0,     2,     0,     1,     0,     0,     0,    10,
+       0,     0,     9,     0,     0,     0,     0,     0,     0,     0,
+      11,     5,     6,     7,     8,     4,     0,     3
   };
 
   const signed char
@@ -916,47 +927,47 @@ namespace yy {
   const signed char
   Parser::yydefgoto_[] =
   {
-      -1,     2,     3,     9
+      -1,     2,     3,    10
   };
 
   const signed char
   Parser::yytable_[] =
   {
-      11,    14,    15,    17,     1,    19,    20,    21,    22,    12,
-      13,    14,    15,     5,    16,    12,    13,    14,    15,     6,
-      18,    12,    13,    14,    15,    23,    24,     7,     4,    10,
-       0,     8,    25
+      12,    13,    16,    17,    19,     1,     4,    21,    22,    23,
+      24,     7,     5,     6,     8,    11,     0,     0,     9,    14,
+      15,    16,    17,    25,    18,    14,    15,    16,    17,    27,
+      20,    14,    15,    16,    17,     0,    26
   };
 
   const signed char
   Parser::yycheck_[] =
   {
-       7,     5,     6,    10,    10,    12,    13,    14,    15,     3,
-       4,     5,     6,     0,     8,     3,     4,     5,     6,    10,
-       8,     3,     4,     5,     6,     9,     8,     7,     7,     7,
-      -1,    11,     9
+       7,     8,     5,     6,    11,    10,     7,    14,    15,    16,
+      17,     4,     0,    10,     7,     7,    -1,    -1,    11,     3,
+       4,     5,     6,     9,     8,     3,     4,     5,     6,     9,
+       8,     3,     4,     5,     6,    -1,     8
   };
 
   const signed char
   Parser::yystos_[] =
   {
-       0,    10,    13,    14,     7,     0,    10,     7,    11,    15,
-       7,    15,     3,     4,     5,     6,     8,    15,     8,    15,
-      15,    15,    15,     9,     8,     9
+       0,    10,    14,    15,     7,     0,    10,     4,     7,    11,
+      16,     7,    16,    16,     3,     4,     5,     6,     8,    16,
+       8,    16,    16,    16,    16,     9,     8,     9
   };
 
   const signed char
   Parser::yyr1_[] =
   {
-       0,    12,    13,    14,    14,    15,    15,    15,    15,    15,
-      15
+       0,    13,    14,    15,    15,    16,    16,    16,    16,    16,
+      16,    16
   };
 
   const signed char
   Parser::yyr2_[] =
   {
-       0,     2,     1,     6,     5,     3,     3,     3,     3,     1,
-       3
+       0,     2,     1,     6,     5,     3,     3,     3,     3,     2,
+       1,     3
   };
 
 
@@ -967,16 +978,16 @@ namespace yy {
   const Parser::yytname_[] =
   {
   "\"eof\"", "error", "$undefined", "\"+\"", "\"-\"", "\"*\"", "\"/\"",
-  "\"(\"", "\")\"", "\";\"", "\"EVALUAR\"", "\"NUM\"", "$accept", "Inicio",
-  "Lista", "Expr", YY_NULLPTR
+  "\"(\"", "\")\"", "\";\"", "\"EVALUAR\"", "\"NUM\"", "NEG", "$accept",
+  "Inicio", "Lista", "Expr", YY_NULLPTR
   };
 
 #if YYDEBUG
   const signed char
   Parser::yyrline_[] =
   {
-       0,    41,    41,    45,    49,    55,    58,    61,    64,    67,
-      71
+       0,    43,    43,    47,    51,    57,    60,    63,    66,    69,
+      72,    76
   };
 
   // Print the state stack on the debug stream.
@@ -1010,11 +1021,11 @@ namespace yy {
 
 
 } // yy
-#line 1014 "parser.tab.cc"
+#line 1025 "parser.tab.cc"
 
-#line 77 "parser.yy"
+#line 82 "parser.yy"
 
 
-void yy::Parser::error( const std::string& token){
-  std::cout << token << std::endl;
+void yy::Parser::error( const std::string& error){
+  std::cout << error << std::endl;
 }
