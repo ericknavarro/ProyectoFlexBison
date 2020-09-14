@@ -28,6 +28,8 @@ Bison es un generador de analizadores sintácticos ascendentes escrito en C para
 
 El analizador sintáctico obtiene una cadena de tokens del analizador léxico y verifica que dicha cadena pueda generase con la gramática para el lenguaje fuente. Una gramática proporciona una especificación precisa y fácil de entender de un lenguaje de programación.
 
+La página oficial de Bison se encuentra en el siguient enlace: https://www.gnu.org/software/bison/ 
+
 ## Prerequisitos
 Para este ejemplo neceistamos las siguientes herramientas:
 * Compilador GCC

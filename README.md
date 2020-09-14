@@ -7,6 +7,6 @@
 ## Herramientas utilizadas
 * Ubuntu 20.04: Sistema operativo
 * Visual Studio Code: Editor de codigo fuente.
-* Flex
-* Bison
+* Flex: Generador de analizadores léxicos
+* Bison: Generador de analizadores sintácticos
 
